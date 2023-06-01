@@ -17,3 +17,32 @@ body {
   height: 600px;
 }
 
+.grid {
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+  grid-template-columns: repeat(5, auto);
+}
+
+.box {
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--empty);
+  margin: 4px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.box.empty {
+  background: var(--empty);
+}
+
+.box.wrong {
+  background: var(--wrong);
+}
+
+.box.right {
+  background: var(--right);
+}
