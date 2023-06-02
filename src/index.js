@@ -41,17 +41,31 @@ function registerKeyboardEvents() {
     document.body.onkeydown = (event) => {
         const key = event.key;
         if (key === 'Enter') {
-
+            if (state.currentCol === 5) {
+                const word = getCurrentWord();
+                if (isWordValid(word)) {
+                    revealWord(word);
+                    state.currentRow++;
+                    state.currentCol = 0
+                } else {
+                    alert('Not a valid word');
+                }
+            }
         }
         if (key === 'Backspace') {
-
+            removeLetter();
         }
         if (isLetter(key)) {
-
+            addLetter(key)
         }
         updateGrid()
     }
 }
+
+function getCurrentWord() {
+    return state.grid[state.currentRow].reduce(((prev, curr) => prev + curr));
+}
+
 
 function startup() {
     const game = document.getElementById('game');
