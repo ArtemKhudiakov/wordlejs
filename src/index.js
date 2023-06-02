@@ -37,9 +37,27 @@ function drawGrid(container) {
     container.appendChild(grid)
 }
 
+function registerKeyboardEvents() {
+    document.body.onkeydown = (event) => {
+        const key = event.key;
+        if (key === 'Enter') {
+
+        }
+        if (key === 'Backspace') {
+
+        }
+        if (isLetter(key)) {
+
+        }
+        updateGrid()
+    }
+}
+
 function startup() {
     const game = document.getElementById('game');
     drawGrid(game)
+
+    registerKeyboardEvents()
 
     // state.grid = Array(6)
     //     .fill()
