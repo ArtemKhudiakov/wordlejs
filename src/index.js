@@ -1,3 +1,11 @@
+const state = {
+    grid: Array(6)
+        .fill()
+        .map(() => Array(5).fill('')),
+    currentRow: 0,
+    currentCol: 0,
+}
+
 function drawBox(container, row, col, letter = '') {
     const box = document.createElement('div');
     box.className = 'box';
