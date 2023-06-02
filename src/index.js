@@ -41,7 +41,10 @@ function startup() {
     const game = document.getElementById('game');
     drawGrid(game)
 
-
+    // state.grid = Array(6)
+    //     .fill()
+    //     .map(() => Array(5).fill('A'))
+    // updateGrid()
 }
 
 startup();
