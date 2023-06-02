@@ -6,6 +6,15 @@ const state = {
     currentCol: 0,
 }
 
+function updateGrid() {
+    for (let i = 0; i < state.grid.length; i++) {
+        for (let j = 0; j < state.grid[i].length; j++) {
+            const box = document.getElementById(`box${i}${j}`);
+            box.textContent = state.grid[i][j];
+        }
+    }
+}
+
 function drawBox(container, row, col, letter = '') {
     const box = document.createElement('div');
     box.className = 'box';
@@ -31,6 +40,8 @@ function drawGrid(container) {
 function startup() {
     const game = document.getElementById('game');
     drawGrid(game)
+
+
 }
 
 startup();
