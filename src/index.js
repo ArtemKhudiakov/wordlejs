@@ -88,6 +88,25 @@ function revealWord(guess) {
             box.classList.add('empty');
         }
     }
+
+    const isWinner = state.secret === guess;
+    const isGameOver = state.currentRow === 5;
+
+    if (isWinner) {
+        alert('Congrats')
+    } else if (isGameOver) {
+        alert(`Next time! The word was ${state.secret}`)
+    }
+}
+
+function isLetter(key) {
+    return key.length === 1 && key.match(/[a-z]/i);
+}
+
+function addLetter(letter) {
+    if (state.currentCol === 5) return;
+    state.grid[state.currentRow][state.currentCol] = letter;
+    state.currentCol++;
 }
 
 function startup() {
