@@ -1,4 +1,4 @@
-const dictionary = ['arena,arrow,abuse,acute,agile,alloy,angle,ankle,athlete,award,balls,beach,bikes,black,blade,bleed,block,board,boxing,brawl,break,bucks,bulky,bungee,bunts,camps,catch,cheer,climb,coast,crack,crush,curve,darts,dives,drill,duels,eager,elbow,elite,equip,fight,flair,fleet,flips,focus,frisk,gains,games,gears,glide,golfs,grasp,greet,grips,group,gusty,halos,haste,heart,hikes,hooks,hoops,hurry,hydra,icing,joint,joust,jumps,junks,kayak,kicks,knock,kudos,lance,leaps,limbs,links,lofty,loops,magic,march,match,merry,might,motoc,niche,odds,ounce,owned,pitch,pluck,prize,punch,quick,rally,reels,rides,rings,rocks,route,scram,score,sharp,shove,skate,speed,spike,sport,squat,stage,stick,stunt,surge,swift,swing,tacks,teams,throw,track,trail,tweak,vault,winds,wraps,zones']
+const dictionary = ['arena', 'arrow', 'abuse', 'acute', 'agile', 'alloy', 'angle', 'ankle', 'athlete', 'award', 'balls', 'beach', 'bikes', 'black', 'blade', 'bleed', 'block', 'board', 'boxing', 'brawl', 'break', 'bucks', 'bulky', 'bungee', 'bunts', 'camps', 'catch', 'cheer', 'climb', 'coast', 'crack', 'crush', 'curve', 'darts', 'dives', 'drill', 'duels', 'eager', 'elbow', 'elite', 'equip', 'fight', 'flair', 'fleet', 'flips', 'focus', 'frisk', 'gains', 'games', 'gears', 'glide', 'golfs', 'grasp', 'greet', 'grips', 'group', 'gusty', 'halos', 'haste', 'heart', 'hikes', 'hooks', 'hoops', 'hurry', 'hydra', 'icing', 'joint', 'joust', 'jumps', 'junks', 'kayak', 'kicks', 'knock', 'kudos', 'lance', 'leaps', 'limbs', 'links', 'lofty', 'loops', 'magic', 'march', 'match', 'merry', 'might', 'niche', 'ounce', 'owned', 'pitch', 'pluck', 'prize', 'punch', 'quick', 'rally', 'reels', 'rides', 'rings', 'rocks', 'route', 'scram', 'score', 'sharp', 'shove', 'skate', 'speed', 'spike', 'sport', 'squat', 'stage', 'stick', 'stunt', 'surge', 'swift', 'swing', 'tacks', 'teams', 'throw', 'track', 'trail', 'tweak', 'vault', 'winds', 'wraps', 'zones']
 
 const state = {
     secret: dictionary[Math.floor(Math.random() * dictionary.length)],
@@ -109,11 +109,19 @@ function addLetter(letter) {
     state.currentCol++;
 }
 
+function removeLetter() {
+    if (state.currentCol === 0) return;
+    state.grid[state.currentRow][state.currentCol - 1] = '';
+    state.currentCol--;
+}
+
 function startup() {
     const game = document.getElementById('game');
     drawGrid(game)
 
     registerKeyboardEvents()
+
+    console.log(state.secret)
 
     // state.grid = Array(6)
     //     .fill()
